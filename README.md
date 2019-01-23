@@ -1,6 +1,11 @@
 ### Getting Started
 
-`yarn`
-`yarn start`
+```bash
+yarn
+```
+
+```bash
+yarn start
+```
 
 Open `out/sameBuilding.json`
