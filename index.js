@@ -3,6 +3,7 @@ const fs = require("fs-extra");
 
 const NODE_DATA_URL = "https://node-db.netlify.com/nodes.json";
 const PRECISION = 4;
+var	status = "";
 
 fetch(NODE_DATA_URL)
 	.then(res => res.json())
@@ -13,8 +14,14 @@ fetch(NODE_DATA_URL)
 			const roundedLat = lat.toFixed(PRECISION);
 			const roundedLng = lng.toFixed(PRECISION);
 			const key = `${roundedLat},${roundedLng}`;
+			status = cur.status
+			if (typeof status == 'undefined'){
+				status="";
+			} else{
+				status = " "+status
+			}
 			acc[key] = acc[key] || [];
-			acc[key].push(cur.id+" "+cur.status);
+			acc[key].push(cur.id+status);
 			return acc;
 		}, {});
 
