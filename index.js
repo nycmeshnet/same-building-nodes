@@ -14,7 +14,7 @@ fetch(NODE_DATA_URL)
 			const roundedLng = lng.toFixed(PRECISION);
 			const key = `${roundedLat},${roundedLng}`;
 			acc[key] = acc[key] || [];
-			acc[key].push(cur.id);
+			acc[key].push(cur.id+" "+cur.status);
 			return acc;
 		}, {});
 
